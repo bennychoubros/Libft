@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:39:21 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 14:39:23 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/16 19:35:33 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ char		*ft_itoa_base_signed(ssize_t nbr, int base)
 	if (!(s = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	s[len] = '\0';
-	if (!nb)
-		s[--len] = '0';
+	*s = '0';
 	while (nb != 0)
 	{
 		s[--len] = (nb > 0) ? HEXA[nb % base] : HEXA[(nb % base) * -1];

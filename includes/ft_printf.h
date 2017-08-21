@@ -6,12 +6,12 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:52:43 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 13:28:33 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/17 10:23:36 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FT_PRINTF_H
-# define __FT_PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
 

@@ -6,12 +6,12 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/29 16:00:08 by bviala            #+#    #+#             */
-/*   Updated: 2017/06/29 16:00:10 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/17 10:23:55 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINT_H
-# define PRINT_H
+#ifndef OUTPUT_H
+# define OUTPUT_H
 
 # include "libft.h"
 

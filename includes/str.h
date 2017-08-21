@@ -6,12 +6,12 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/29 15:58:57 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 13:41:48 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/17 10:23:15 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#ifndef STR_H
+# define STR_H
 
 # include "libft.h"
 # include <stdlib.h>
@@ -22,6 +22,7 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 char				*ft_strrev(char *str);
 char				*ft_strnew(size_t size);
+char				*ft_strnew_c(size_t size, char c);
 int					ft_wstrlen(wchar_t *str);
 int					ft_str_isdigit(char *str);
 size_t				ft_strlen(const char *str);

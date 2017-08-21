@@ -6,12 +6,12 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 11:20:22 by gavizet           #+#    #+#             */
-/*   Updated: 2017/07/18 13:16:55 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/17 10:24:30 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LINKED_LIST_H
-# define LINKED_LIST_H
+#ifndef LST_H
+# define LST_H
 
 # include "libft.h"
 
@@ -19,7 +19,7 @@ typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
-	struct	s_list	*next;
+	struct s_list	*next;
 }					t_list;
 
 void				ft_lstrev(t_list **liste);
@@ -33,5 +33,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdel(t_list **alst, void (*del) (void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del) (void *, size_t));
+t_list				*ft_lstswap(t_list *list);
+void				ft_lstsort(t_list **begin_list, int (*cmp)());
 
 #endif

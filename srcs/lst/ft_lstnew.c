@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 13:14:45 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 13:14:51 by bviala           ###   ########.fr       */
+/*   Updated: 2017/08/11 10:59:56 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (!content)
 	{
-		content = NULL;
-		content_size = 0;
+		maillon->content = NULL;
+		maillon->content_size = 0;
 	}
 	else
 	{
@@ -29,7 +29,7 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 			return (NULL);
 		ft_memcpy(maillon->content, content, content_size);
 		maillon->content_size = content_size;
-		maillon->next = NULL;
 	}
+	maillon->next = NULL;
 	return (maillon);
 }

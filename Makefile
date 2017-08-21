@@ -6,7 +6,7 @@
 #    By: bviala <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/29 15:54:48 by bviala            #+#    #+#              #
-#    Updated: 2017/08/03 18:59:30 by bviala           ###   ########.fr        #
+#    Updated: 2017/08/16 11:52:22 by bviala           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,11 @@ SRCS_FILES	= lst/ft_lstadd.c lst/ft_lstcmp.c lst/ft_lstdel.c				\
 			  lst/ft_lstmap.c lst/ft_lstnew.c lst/ft_lstrev.c				\
 			  lst/ft_lstsize.c lst/ft_lstiter.c lst/ft_lstclear.c			\
 			  lst/ft_lstprint.c	lst/ft_lstdelone.c lst/ft_lstaddback.c		\
+			  lst/ft_lstswap.c lst/ft_lstsort.c								\
 			  maths/ft_abs.c maths/ft_pow.c	maths/ft_atoi.c maths/ft_itoa.c	\
 			  maths/ft_sqrt.c maths/ft_rec_fac.c maths/reverse_octet.c		\
 			  maths/ft_itoa_base_uns.c maths/ft_itoa_base_signed.c			\
+			  maths/ft_litoa.c maths/ft_llitoa.c 							\
 			  mem/ft_bzero.c mem/ft_memcpy.c mem/ft_memchr.c				\
 			  mem/ft_memcmp.c mem/ft_memdel.c mem/ft_memset.c				\
 			  mem/ft_memccpy.c mem/ft_memmove.c	mem/free_tab2d.c			\
@@ -76,7 +78,7 @@ SRCS_FILES	= lst/ft_lstadd.c lst/ft_lstcmp.c lst/ft_lstdel.c				\
 			  str/ft_strlcat.c str/ft_strtrim.c str/ft_wstrlen.c			\
 			  str/ft_strmapi.c str/ft_strncat.c str/ft_strncmp.c			\
 			  str/ft_strncpy.c str/ft_strnequ.c str/ft_striteri.c			\
-			  str/ft_strsplit.c str/ft_str_isdigit.c						\
+			  str/ft_strsplit.c str/ft_str_isdigit.c str/ft_strnew_c.c		\
 			  str/ft_calc_wstrlen.c str/ft_strjoin_free.c					\
 			  utils/ft_swap.c utils/ft_isalnum.c utils/ft_isalpha.c			\
 			  utils/ft_isascii.c utils/ft_isdigit.c							\

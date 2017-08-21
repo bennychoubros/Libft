@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/29 15:58:44 by bviala            #+#    #+#             */
-/*   Updated: 2017/06/29 16:06:27 by bviala           ###   ########.fr       */
+/*   Updated: 2017/07/24 15:40:16 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 
-# define BUFF_SIZE 16
+# define BUFF_SIZE 250
 
 typedef struct		s_fd
 {
