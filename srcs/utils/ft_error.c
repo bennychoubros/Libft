@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lduval <lduval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 14:48:07 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/21 19:26:07 by bviala           ###   ########.fr       */
+/*   Created: 2017/03/28 04:17:08 by lduval            #+#    #+#             */
+/*   Updated: 2017/05/23 13:56:34 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_error(char *str, void (*f)(void))
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	if (f)
+		(*f)();
+	ft_putstr("ERROR: ");
+	if (str)
+		ft_putendl(str);
+	exit(0);
 }

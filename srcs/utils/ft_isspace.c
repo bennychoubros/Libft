@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/08/21 19:46:35 by bviala            #+#    #+#             */
+/*   Updated: 2017/08/21 20:25:48 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+int		ft_isspace(int c)
 {
-	t_list	*actual;
-	t_list	*suivant;
-
-	suivant = *liste;
-	if (*liste)
-	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
-	}
+	return (c == ' ' || c == '\t' || c == '\v'
+			|| c == '\f' || c == '\r' || c == '\n');
 }

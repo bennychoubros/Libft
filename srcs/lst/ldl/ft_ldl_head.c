@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_ldl_head.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 14:48:07 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/21 19:26:07 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/09 19:46:47 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/09 19:48:28 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+t_ldl	*ft_ldl_head(t_ldl_head *ldl)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	if (ldl)
+		return (ldl->head);
+	return (NULL);
 }

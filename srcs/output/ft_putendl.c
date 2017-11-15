@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:47:50 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 14:47:53 by bviala           ###   ########.fr       */
+/*   Updated: 2017/09/21 19:26:37 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_putendl(char const *s)
 {
 	if (!s)
 		return ;
-	while (*s)
-		write(1, &*s++, 1);
+	write(1, s, ft_strlen(s));
 	write(1, "\n", 1);
 }

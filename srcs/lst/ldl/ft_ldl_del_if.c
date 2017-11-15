@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_ldl_del_if.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/15 17:28:14 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/15 17:59:21 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+void	ft_ldl_del_if(t_ldl_head *ldl_head, int (*fcmp)(),
+		void *content, void (*del)())
 {
-	t_list	*actual;
-	t_list	*suivant;
+	t_ldl *temp;
 
-	suivant = *liste;
-	if (*liste)
+	if (!ldl_head || !fcmp)
+		return ;
+	temp = ldl_head->head;
+	while (temp)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		if (!(fcmp(temp->content, content)))
+			ft_ldl_del(ldl_head, &temp, del);
+		temp = temp->next;
 	}
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/08 13:40:48 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/08 13:41:49 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+void	btree_apply_prefix(t_btree *root, void (*applyf)(void *))
 {
-	t_list	*actual;
-	t_list	*suivant;
-
-	suivant = *liste;
-	if (*liste)
+	if (root != 0)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		(*applyf)(root->item);
+		if (root->left)
+			btree_apply_prefix(root->left, (*applyf));
+		if (root->right)
+			btree_apply_prefix(root->right, (*applyf));
 	}
 }

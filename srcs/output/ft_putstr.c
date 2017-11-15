@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:49:29 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/18 14:49:31 by bviala           ###   ########.fr       */
+/*   Updated: 2017/09/21 19:25:20 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	ft_putstr(char const *str)
 {
 	if (!str)
 		return ;
-	while (*str)
-		write(1, &*str++, 1);
+	write(1, str, ft_strlen(str));
 }

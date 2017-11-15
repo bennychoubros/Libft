@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_ldl_rev.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/14 16:41:23 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/14 16:54:31 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+t_ldl_head	*ft_ldl_rev(t_ldl_head *ldl)
 {
-	t_list	*actual;
-	t_list	*suivant;
+	t_ldl_head	*new;
+	t_ldl		*temp;
 
-	suivant = *liste;
-	if (*liste)
+	if (!ldl || !(new = ft_ldl_new_list()))
+		return (NULL);
+	temp = ldl->tail;
+	while (temp)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		new = ft_ldl_addback(new, temp->content);
+		temp = temp->prev;
 	}
+	free(ldl);
+	return (new);
 }

@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_sort_wordtab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/08/21 19:17:39 by bviala            #+#    #+#             */
+/*   Updated: 2017/08/22 11:44:24 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+void	ft_sort_wordtab(char **tab)
 {
-	t_list	*actual;
-	t_list	*suivant;
+	int	i;
+	int	sort;
 
-	suivant = *liste;
-	if (*liste)
+	if (!tab || !(*tab))
+		return ;
+	sort = 0;
+	while (!sort)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
+		sort = 1;
+		i = 0;
+		while (tab[i + 1])
 		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
+			if (ft_strcmp(tab[i], tab[i + 1]) > 0)
+			{
+				ft_swap((void **)&tab[i], (void **)&tab[i + 1]);
+				sort = 0;
+			}
+			i++;
 		}
 	}
 }

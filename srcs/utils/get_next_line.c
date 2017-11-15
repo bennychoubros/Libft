@@ -6,7 +6,7 @@
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 20:01:22 by bviala            #+#    #+#             */
-/*   Updated: 2017/07/24 16:59:50 by bviala           ###   ########.fr       */
+/*   Updated: 2017/09/28 20:11:19 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,11 @@ static int	get_full_line(t_fd *current, char **line, int i)
 				== NULL) && current->save[0] != '\0')
 	{
 		*line = ft_strdup(current->save);
-		current->save = NULL;
+		ft_strdel(&current->save);
 		return (1);
 	}
-	if (i > 0)
-		return (1);
-	return (i);
+	ft_strdel(&current->save);
+	return (i > 0 ? 1 : i);
 }
 
 static int	check_save(t_fd *current, char **line)

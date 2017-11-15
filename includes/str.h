@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/29 15:58:57 by bviala            #+#    #+#             */
-/*   Updated: 2017/08/17 10:23:15 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/08 14:02:21 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/08 14:02:24 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ int					ft_str_isdigit(char *str);
 size_t				ft_strlen(const char *str);
 char				*ft_strtrim(char const *s);
 char				*ft_strdup(const char *src);
+char				*ft_strndup(const char *src, size_t len);
 char				*ft_strchr(const char *str, int n);
 char				*ft_strrchr(const char *str, int n);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit_whitespaces(char const *str);
 void				ft_striter(char *s, void (*f) (char *));
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strcat(char *dest, const char *src);

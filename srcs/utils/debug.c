@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: czalewsk <czalewsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 14:48:07 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/21 19:26:07 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/06 15:48:05 by czalewsk          #+#    #+#             */
+/*   Updated: 2017/11/15 18:47:24 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+int		debug(char *format, ...)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	int			fd;
+	va_list		ap;
+
+	fd = open(DEBUG_WINDOW, O_RDWR);
+	va_start(ap, format);
+	vdprintf(fd, format, ap);
+	va_end(ap);
+	close(fd);
+	return (1);
 }

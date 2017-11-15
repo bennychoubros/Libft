@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_lstprint_name.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/09/16 18:06:26 by bviala            #+#    #+#             */
+/*   Updated: 2017/09/16 18:06:50 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+void	ft_lstprint_name(t_list **list)
 {
-	t_list	*actual;
-	t_list	*suivant;
+	t_list	*tmp;
 
-	suivant = *liste;
-	if (*liste)
+	tmp = *list;
+	if (!tmp)
+		return ;
+	while (tmp != NULL)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		ft_putendl(tmp->content);
+		tmp = tmp->next;
 	}
 }

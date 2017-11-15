@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/07/18 14:53:06 by bviala            #+#    #+#             */
+/*   Updated: 2017/09/06 15:19:00 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+char		*ft_strndup(const char *src, size_t len)
 {
-	t_list	*actual;
-	t_list	*suivant;
+	char	*dest;
 
-	suivant = *liste;
-	if (*liste)
-	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
-	}
+	if (!(dest = (char*)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	dest[len] = '\0';
+	dest = ft_memcpy(dest, src, len);
+	return (dest);
 }

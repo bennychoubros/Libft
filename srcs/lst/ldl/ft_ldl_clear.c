@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_ldl_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/08 15:56:12 by bviala            #+#    #+#             */
+/*   Updated: 2017/11/14 16:32:30 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+void	ft_ldl_clear(t_ldl_head **ldl, void (*del)())
 {
-	t_list	*actual;
-	t_list	*suivant;
+	t_ldl *temp;
+	t_ldl *to_del;
 
-	suivant = *liste;
-	if (*liste)
+	if (!ldl || !*ldl)
+		return ;
+	temp = ft_ldl_head(*ldl);
+	while (temp)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		to_del = temp;
+		temp = temp->next;
+		ft_ldl_del(*ldl, &to_del, del);
 	}
+	free(*ldl);
+	*ldl = NULL;
 }

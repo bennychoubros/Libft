@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 13:15:35 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/14 16:33:23 by bviala           ###   ########.fr       */
+/*   Created: 2017/09/07 15:08:18 by bviala            #+#    #+#             */
+/*   Updated: 2017/09/28 20:11:57 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **liste)
+char	*ft_getenv(char **env, char *elem)
 {
-	t_list	*actual;
-	t_list	*suivant;
+	int	len;
+	int	len_path;
 
-	suivant = *liste;
-	if (*liste)
+	if (!elem || !env)
+		return (NULL);
+	len = ft_strlen(elem);
+	while (*env)
 	{
-		suivant = suivant->next;
-		(*liste)->next = NULL;
-		while (suivant)
-		{
-			actual = suivant;
-			suivant = suivant->next;
-			actual->next = *liste;
-			*liste = actual;
-		}
+		len_path = 0;
+		while ((*env)[len_path] && (*env)[len_path] != '=')
+			len_path++;
+		if (ft_strcmp(*env, elem) == '=' && len == len_path)
+			return (*env + len + 1);
+		env++;
 	}
+	return (NULL);
 }

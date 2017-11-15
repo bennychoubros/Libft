@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: czalewsk <czalewsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 14:48:07 by bviala            #+#    #+#             */
-/*   Updated: 2017/09/21 19:26:07 by bviala           ###   ########.fr       */
+/*   Created: 2017/11/06 16:00:09 by czalewsk          #+#    #+#             */
+/*   Updated: 2017/11/08 13:54:02 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef __DEBUG_H
+# define __DEBUG_H
 
-void	ft_putendl_fd(char const *s, int fd)
-{
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
-}
+# include "libft.h"
+# include <fcntl.h>
+
+# define DEBUG_WINDOW ("/dev/ttys005")
+# define DEBUG(x...) (debug(x));
+
+int		debug(char *format, ...);
+
+#endif
