@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2016/11/07 12:31:56 by czalewsk          #+#    #+#             */
+/*   Updated: 2017/04/25 08:37:48 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+long int		ft_atol(const char *str)
 {
-	void *mem;
+	long	int	n;
+	int			signe;
 
-	if (!(mem = malloc(size)))
+	signe = 1;
+	n = 0;
+	while ((*str > 8 && *str < 14) || *str == 32)
+		str++;
+	if (*str == 45)
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		signe = -1;
+		str++;
 	}
-	ft_bzero(mem, size);
-	return (mem);
+	else if (*str == 43)
+		str++;
+	while (*str > 47 && *str < 58)
+		n = (*str++ - 48) + n * 10;
+	n *= signe;
+	return (n);
 }

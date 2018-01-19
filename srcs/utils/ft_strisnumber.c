@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: xesnault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2016/11/03 11:30:46 by xesnault          #+#    #+#             */
+/*   Updated: 2017/05/22 21:25:39 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int				ft_strisnumber(char *str)
 {
-	void *mem;
-
-	if (!(mem = malloc(size)))
+	if (!str || !(*str))
+		return (0);
+	if ((*str == '-' || *str == '+') && *(str + 1))
+		++str;
+	while (*str)
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		if (!ft_isdigit(*str))
+			return (0);
+		++str;
 	}
-	ft_bzero(mem, size);
-	return (mem);
+	return (1);
 }

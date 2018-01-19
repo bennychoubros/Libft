@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bviala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2017/07/18 14:52:21 by bviala            #+#    #+#             */
+/*   Updated: 2017/12/11 10:40:15 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strnchr(const char *str, int c, size_t len)
 {
-	void *mem;
-
-	if (!(mem = malloc(size)))
+	if ((char)c == '\0')
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		while (*str != (char)c && *str && len--)
+			str++;
+		return ((char*)str);
 	}
-	ft_bzero(mem, size);
-	return (mem);
+	while (*str != (char)c && *str && len--)
+		str++;
+	return ((*str == '\0' || !len) ? NULL : (char*)str);
 }

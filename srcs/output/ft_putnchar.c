@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_putnchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bviala <bviala@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2017/12/14 13:59:28 by bviala            #+#    #+#             */
+/*   Updated: 2017/12/21 19:21:44 by bviala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_putnchar_fd(char const c, int n, int fd)
 {
-	void *mem;
+	int		i;
 
-	if (!(mem = malloc(size)))
-	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
-	}
-	ft_bzero(mem, size);
-	return (mem);
+	if (!c || !n)
+		return ;
+	i = 0;
+	while (i++ < n)
+		write(fd, &c, n);
+}
+
+void	ft_putnchar(char const c, int n)
+{
+	int		i;
+
+	if (!c || !n)
+		return ;
+	i = 0;
+	while (i++ < n)
+		write(1, &c, n);
 }

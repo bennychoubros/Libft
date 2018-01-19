@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   is_escape.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2018/01/05 10:40:03 by czalewsk          #+#    #+#             */
+/*   Updated: 2018/01/05 12:00:22 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char		ft_is_escape(char *esc, char *str)
 {
-	void *mem;
+	char		is_escape;
 
-	if (!(mem = malloc(size)))
+	is_escape = 0;
+	while (str && str < esc)
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		if (*str == '\\')
+			str += *(str + 1) ? 2 : 1;
+		if (*str == '\'' || *str == '\"')
+		{
+			if (!is_escape)
+				is_escape = *str;
+			else if (is_escape == *str)
+				is_escape = 0;
+		}
+		str += (*str && str != esc) ? 1 : 0;
 	}
-	ft_bzero(mem, size);
-	return (mem);
+	is_escape = is_escape ? 1 : 0;
+	return (esc == str ? is_escape : -1);
 }

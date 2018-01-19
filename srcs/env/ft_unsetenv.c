@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_unsetenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: czalewsk <czalewsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2017/11/28 15:56:38 by czalewsk          #+#    #+#             */
+/*   Updated: 2017/11/28 18:07:34 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void		ft_unsetenv(char *key, char **env)
 {
-	void *mem;
+	char	**to_del;
 
-	if (!(mem = malloc(size)))
-	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
-	}
-	ft_bzero(mem, size);
-	return (mem);
+	if (!key || !env)
+		return ;
+	if (!(to_del = ft_getenv_addr(env, key)))
+		return ;
+	while (*env)
+		env++;
+	ft_strdel(to_del);
+	ft_memmove(to_del, to_del + 1, (env - to_del) * sizeof(char**));
 }

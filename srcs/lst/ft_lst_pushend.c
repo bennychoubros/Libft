@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lst_pushend.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2016/11/13 12:10:53 by czalewsk          #+#    #+#             */
+/*   Updated: 2016/11/14 19:45:37 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lst_pushend(t_list **alst, t_list *new)
 {
-	void *mem;
+	t_list		*addr;
 
-	if (!(mem = malloc(size)))
+	if (!new || !alst)
+		return ;
+	else if (!(*alst))
+		*alst = new;
+	else
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		addr = *alst;
+		while (addr->next)
+			addr = addr->next;
+		addr->next = new;
 	}
-	ft_bzero(mem, size);
-	return (mem);
 }

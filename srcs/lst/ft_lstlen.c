@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: czalewsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 12:17:37 by czalewsk          #+#    #+#             */
-/*   Updated: 2017/09/19 14:48:10 by czalewsk         ###   ########.fr       */
+/*   Created: 2016/11/13 14:33:29 by czalewsk          #+#    #+#             */
+/*   Updated: 2016/11/13 14:59:07 by czalewsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+size_t		ft_lstlen(t_list *lst)
 {
-	void *mem;
+	t_list	*current;
+	size_t	i;
 
-	if (!(mem = malloc(size)))
+	i = 1;
+	if (!lst)
+		return (0);
+	current = lst;
+	while (current->next)
 	{
-		ft_putendl_fd("Fail to malloc\nHint : Buy a real pc :D", 2);
-		exit(EXIT_FAILURE);
+		i++;
+		current = current->next;
 	}
-	ft_bzero(mem, size);
-	return (mem);
+	return (i);
 }
